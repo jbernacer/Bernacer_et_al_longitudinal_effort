@@ -1,0 +1,72 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_Khyp_PRE_vs_POST.log
+  log type:  text
+ opened on:  17 Dec 2018, 10:28:12
+
+. use "[HIDDEN_PATH]\dataset.dta", clear
+
+. signtest PRE_Khyp = POST_Khyp
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          14           9
+    negative |           4           9
+        zero |           1           1
+-------------+------------------------
+         all |          19          19
+
+One-sided tests:
+  Ho: median of PRE_Khyp - POST_Khyp = 0 vs.
+  Ha: median of PRE_Khyp - POST_Khyp > 0
+      Pr(#positive >= 14) =
+         Binomial(n = 18, x >= 14, p = 0.5) =  0.0154
+
+  Ho: median of PRE_Khyp - POST_Khyp = 0 vs.
+  Ha: median of PRE_Khyp - POST_Khyp < 0
+      Pr(#negative >= 4) =
+         Binomial(n = 18, x >= 4, p = 0.5) =  0.9962
+
+Two-sided test:
+  Ho: median of PRE_Khyp - POST_Khyp = 0 vs.
+  Ha: median of PRE_Khyp - POST_Khyp != 0
+      Pr(#positive >= 14 or #negative >= 14) =
+         min(1, 2*Binomial(n = 18, x >= 14, p = 0.5)) =  0.0309
+
+. signtest PRE_Khyp_risk = POST_Khyp_risk
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          11         8.5
+    negative |           6         8.5
+        zero |           1           1
+-------------+------------------------
+         all |          18          18
+
+One-sided tests:
+  Ho: median of PRE_Khyp~k - POST_Khyp_risk = 0 vs.
+  Ha: median of PRE_Khyp~k - POST_Khyp_risk > 0
+      Pr(#positive >= 11) =
+         Binomial(n = 17, x >= 11, p = 0.5) =  0.1662
+
+  Ho: median of PRE_Khyp~k - POST_Khyp_risk = 0 vs.
+  Ha: median of PRE_Khyp~k - POST_Khyp_risk < 0
+      Pr(#negative >= 6) =
+         Binomial(n = 17, x >= 6, p = 0.5) =  0.9283
+
+Two-sided test:
+  Ho: median of PRE_Khyp~k - POST_Khyp_risk = 0 vs.
+  Ha: median of PRE_Khyp~k - POST_Khyp_risk != 0
+      Pr(#positive >= 11 or #negative >= 11) =
+         min(1, 2*Binomial(n = 17, x >= 11, p = 0.5)) =  0.3323
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_Khyp_PRE_vs_POST.log
+  log type:  text
+ closed on:  17 Dec 2018, 10:29:38
+---------------------------------------------------------------------------------------------------------------------------------

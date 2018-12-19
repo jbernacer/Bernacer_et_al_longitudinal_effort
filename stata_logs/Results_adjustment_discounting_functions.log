@@ -1,0 +1,130 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN PAT]\Methods_adjustment_discounting_functions.log
+  log type:  text
+ opened on:  17 Dec 2018, 10:22:35
+
+. use "[HIDDEN_PATH]\dataset.dta", clear
+
+. signtest PRE_R2_hyp = POST_R2_hyp
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          10         9.5
+    negative |           9         9.5
+        zero |           0           0
+-------------+------------------------
+         all |          19          19
+
+One-sided tests:
+  Ho: median of PRE_R2_hyp - POST_R2_hyp = 0 vs.
+  Ha: median of PRE_R2_hyp - POST_R2_hyp > 0
+      Pr(#positive >= 10) =
+         Binomial(n = 19, x >= 10, p = 0.5) =  0.5000
+
+  Ho: median of PRE_R2_hyp - POST_R2_hyp = 0 vs.
+  Ha: median of PRE_R2_hyp - POST_R2_hyp < 0
+      Pr(#negative >= 9) =
+         Binomial(n = 19, x >= 9, p = 0.5) =  0.6762
+
+Two-sided test:
+  Ho: median of PRE_R2_hyp - POST_R2_hyp = 0 vs.
+  Ha: median of PRE_R2_hyp - POST_R2_hyp != 0
+      Pr(#positive >= 10 or #negative >= 10) =
+         min(1, 2*Binomial(n = 19, x >= 10, p = 0.5)) =  1.0000
+
+. signtest PRE_R2_exp = POST_R2_exp
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          10         9.5
+    negative |           9         9.5
+        zero |           0           0
+-------------+------------------------
+         all |          19          19
+
+One-sided tests:
+  Ho: median of PRE_R2_exp - POST_R2_exp = 0 vs.
+  Ha: median of PRE_R2_exp - POST_R2_exp > 0
+      Pr(#positive >= 10) =
+         Binomial(n = 19, x >= 10, p = 0.5) =  0.5000
+
+  Ho: median of PRE_R2_exp - POST_R2_exp = 0 vs.
+  Ha: median of PRE_R2_exp - POST_R2_exp < 0
+      Pr(#negative >= 9) =
+         Binomial(n = 19, x >= 9, p = 0.5) =  0.6762
+
+Two-sided test:
+  Ho: median of PRE_R2_exp - POST_R2_exp = 0 vs.
+  Ha: median of PRE_R2_exp - POST_R2_exp != 0
+      Pr(#positive >= 10 or #negative >= 10) =
+         min(1, 2*Binomial(n = 19, x >= 10, p = 0.5)) =  1.0000
+
+. signtest PRE_R2_dexp = POST_R2_dexp
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          13         9.5
+    negative |           6         9.5
+        zero |           0           0
+-------------+------------------------
+         all |          19          19
+
+One-sided tests:
+  Ho: median of PRE_R2_d~p - POST_R2_dexp = 0 vs.
+  Ha: median of PRE_R2_d~p - POST_R2_dexp > 0
+      Pr(#positive >= 13) =
+         Binomial(n = 19, x >= 13, p = 0.5) =  0.0835
+
+  Ho: median of PRE_R2_d~p - POST_R2_dexp = 0 vs.
+  Ha: median of PRE_R2_d~p - POST_R2_dexp < 0
+      Pr(#negative >= 6) =
+         Binomial(n = 19, x >= 6, p = 0.5) =  0.9682
+
+Two-sided test:
+  Ho: median of PRE_R2_d~p - POST_R2_dexp = 0 vs.
+  Ha: median of PRE_R2_d~p - POST_R2_dexp != 0
+      Pr(#positive >= 13 or #negative >= 13) =
+         min(1, 2*Binomial(n = 19, x >= 13, p = 0.5)) =  0.1671
+
+. signtest PRE_R2_par = POST_R2_par
+
+Sign test
+
+        sign |    observed    expected
+-------------+------------------------
+    positive |          10         9.5
+    negative |           9         9.5
+        zero |           0           0
+-------------+------------------------
+         all |          19          19
+
+One-sided tests:
+  Ho: median of PRE_R2_par - POST_R2_par = 0 vs.
+  Ha: median of PRE_R2_par - POST_R2_par > 0
+      Pr(#positive >= 10) =
+         Binomial(n = 19, x >= 10, p = 0.5) =  0.5000
+
+  Ho: median of PRE_R2_par - POST_R2_par = 0 vs.
+  Ha: median of PRE_R2_par - POST_R2_par < 0
+      Pr(#negative >= 9) =
+         Binomial(n = 19, x >= 9, p = 0.5) =  0.6762
+
+Two-sided test:
+  Ho: median of PRE_R2_par - POST_R2_par = 0 vs.
+  Ha: median of PRE_R2_par - POST_R2_par != 0
+      Pr(#positive >= 10 or #negative >= 10) =
+         min(1, 2*Binomial(n = 19, x >= 10, p = 0.5)) =  1.0000
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Methods_adjustment_discounting_functions.log
+  log type:  text
+ closed on:  17 Dec 2018, 10:23:47
+---------------------------------------------------------------------------------------------------------------------------------

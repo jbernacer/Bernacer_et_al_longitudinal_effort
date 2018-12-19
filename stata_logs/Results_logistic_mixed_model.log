@@ -1,0 +1,120 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]Results_logistic_mixed_model.log
+  log type:  text
+ opened on:  17 Dec 2018, 11:02:03
+
+. use "[HIDDEN_PATH]\dataset_logistic_mixed_model.dta", clear
+
+. xtmelogit choice diff_effort diff_prob c.diff_effort#habit c.diff_prob#habit ||id: diff_effort diff_prob
+
+Refining starting values: 
+
+Iteration 0:   log likelihood = -2245.8405  (not concave)
+Iteration 1:   log likelihood = -2217.0505  (not concave)
+Iteration 2:   log likelihood = -2209.8613  
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log likelihood = -2209.8613  (not concave)
+Iteration 1:   log likelihood = -2178.5421  (not concave)
+Iteration 2:   log likelihood = -2169.6739  
+Iteration 3:   log likelihood = -2167.1878  (not concave)
+Iteration 4:   log likelihood = -2148.8969  
+Iteration 5:   log likelihood = -2127.5755  
+Iteration 6:   log likelihood = -2127.4146  
+Iteration 7:   log likelihood = -2127.4139  
+Iteration 8:   log likelihood = -2127.4139  
+
+Mixed-effects logistic regression               Number of obs      =      6765
+Group variable: id                              Number of groups   =        19
+
+                                                Obs per group: min =       335
+                                                               avg =     356.1
+                                                               max =       360
+
+Integration points =   7                        Wald chi2(4)       =    371.82
+Log likelihood = -2127.4139                     Prob > chi2        =    0.0000
+
+-------------------------------------------------------------------------------------
+             choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------------+----------------------------------------------------------------
+        diff_effort |   -.327861   .0462548    -7.09   0.000    -.4185189   -.2372032
+          diff_prob |   .1861922   .0232668     8.00   0.000     .1405901    .2317943
+                    |
+habit#c.diff_effort |
+                 1  |   .1145155   .0154838     7.40   0.000     .0841678    .1448631
+                    |
+  habit#c.diff_prob |
+                 1  |   .0303284   .0077955     3.89   0.000     .0150494    .0456074
+                    |
+              _cons |  -.0563781   .0395224    -1.43   0.154    -.1338405    .0210844
+-------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+id: Independent              |
+                sd(diff_e~t) |   .1920349   .0350005      .1343505    .2744864
+                sd(diff_p~b) |   .0960465   .0168774      .0680624    .1355364
+                   sd(_cons) |   6.38e-12   .1021781             0           .
+------------------------------------------------------------------------------
+LR test vs. logistic regression:     chi2(3) =  2707.82   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. estat ic
+
+-----------------------------------------------------------------------------
+       Model |    Obs    ll(null)   ll(model)     df          AIC         BIC
+-------------+---------------------------------------------------------------
+           . |   6765           .   -2127.414      8     4270.828    4325.384
+-----------------------------------------------------------------------------
+               Note:  N=Obs used in calculating BIC; see [R] BIC note
+
+. regress choice diff_effort diff_prob c.diff_effort#habit c.diff_prob#habit
+
+      Source |       SS       df       MS              Number of obs =    6765
+-------------+------------------------------           F(  4,  6760) =  639.53
+       Model |  464.157952     4  116.039488           Prob > F      =  0.0000
+    Residual |  1226.56873  6760  .181445078           R-squared     =  0.2745
+-------------+------------------------------           Adj R-squared =  0.2741
+       Total |  1690.72668  6764  .249959592           Root MSE      =  .42596
+
+-------------------------------------------------------------------------------------
+             choice |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+--------------------+----------------------------------------------------------------
+        diff_effort |  -.0178714   .0007651   -23.36   0.000    -.0193714   -.0163715
+          diff_prob |   .0112647   .0003865    29.14   0.000      .010507    .0120224
+                    |
+habit#c.diff_effort |
+                 1  |   .0090845   .0010804     8.41   0.000     .0069667    .0112024
+                    |
+  habit#c.diff_prob |
+                 1  |   .0037326   .0005461     6.84   0.000     .0026621     .004803
+                    |
+              _cons |   .4873483   .0051821    94.04   0.000     .4771897    .4975069
+-------------------------------------------------------------------------------------
+
+. estat vif
+
+    Variable |       VIF       1/VIF  
+-------------+----------------------
+ diff_effort |      2.32    0.431680
+   diff_prob |      2.32    0.431774
+       habit#|
+          c. |
+ diff_effort |
+          1  |      2.32    0.430639
+       habit#|
+ c.diff_prob |
+          1  |      2.32    0.430730
+-------------+----------------------
+    Mean VIF |      2.32
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_logistic_mixed_model.log
+  log type:  text
+ closed on:  17 Dec 2018, 11:06:36
+---------------------------------------------------------------------------------------------------------------------------------

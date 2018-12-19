@@ -1,0 +1,53 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_ANOVA_log10Khyp_ctrl_intervention.log
+  log type:  text
+ opened on:  17 Dec 2018, 10:58:41
+
+. use "[HIDDEN_PATH]\dataset_for_ANOVA_ctrl_intervention.dta", clear
+
+. anova log10_Khyp group / subject|group time group#time, repeated(time)
+
+                           Number of obs =      64     R-squared     =  0.7930
+                           Root MSE      = .199588     Adj R-squared =  0.5652
+
+                  Source |  Partial SS    df       MS           F     Prob > F
+           --------------+----------------------------------------------------
+                   Model |  4.57691104    33  .138694274       3.48     0.0004
+                         |
+                   group |  .033184365     1  .033184365       0.23     0.6351
+           subject|group |  4.33178146    30  .144392715   
+           --------------+----------------------------------------------------
+                    time |  .001953752     1  .001953752       0.05     0.8262
+              group#time |   .21013861     1   .21013861       5.28     0.0288
+                         |
+                Residual |  1.19506599    30  .039835533   
+           --------------+----------------------------------------------------
+                   Total |  5.77197704    63  .091618683   
+
+
+Between-subjects error term:  subject|group
+                     Levels:  32        (30 df)
+     Lowest b.s.e. variable:  subject
+     Covariance pooled over:  group     (for repeated variable)
+
+Repeated variable: time
+                                          Huynh-Feldt epsilon        =  1.0345
+                                          *Huynh-Feldt epsilon reset to 1.0000
+                                          Greenhouse-Geisser epsilon =  1.0000
+                                          Box's conservative epsilon =  1.0000
+
+                                            ------------ Prob > F ------------
+                  Source |     df      F    Regular    H-F      G-G      Box
+           --------------+----------------------------------------------------
+                    time |      1     0.05   0.8262   0.8262   0.8262   0.8262
+              group#time |      1     5.28   0.0288   0.0288   0.0288   0.0288
+                Residual |     30
+           -------------------------------------------------------------------
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_ANOVA_log10Khyp_ctrl_intervention.log
+  log type:  text
+ closed on:  17 Dec 2018, 10:59:05
+---------------------------------------------------------------------------------------------------------------------------------

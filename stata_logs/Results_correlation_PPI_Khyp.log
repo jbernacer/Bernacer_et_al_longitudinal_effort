@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\RESULTS_correlation_PPI_Khyp.log
+  log type:  text
+ opened on:  17 Dec 2018, 17:44:13
+
+. use "[HIDDEN_PATH]\dataset.dta", clear
+
+. stem POST_PPI_cingulate
+
+Stem-and-leaf plot for POST_PPI_cingulate
+
+POST_PPI_cingulate rounded to nearest multiple of .01
+plot in units of .01
+
+ -0** | 29,20
+ -0** | 07,04,04,03,03,01
+  0** | 01,03,07,15,15
+  0** | 27,34
+  0** | 44,45,50
+  0** | 
+  0** | 
+  1** | 
+  1** | 
+  1** | 
+  1** | 
+  1** | 
+  2** | 00
+
+. pwcorr POST_Khyp POST_PPI_cingulate , sig obs , if POST_PPI_cingulate <1.9
+
+             | POST_K~p POST_P~e
+-------------+------------------
+   POST_Khyp |   1.0000 
+             |
+             |       18
+             |
+POST_PPI_c~e |  -0.4880   1.0000 
+             |   0.0399
+             |       18       18
+             |
+
+. spearman POST_Khyp POST_PPI_cingulate if POST_PPI_cingulate <1.9
+
+ Number of obs =      18
+Spearman's rho =      -0.5212
+
+Test of Ho: POST_Khyp and POST_PPI_cingulate are independent
+    Prob > |t| =       0.0266
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\RESULTS_correlation_PPI_Khyp.log
+  log type:  text
+ closed on:  17 Dec 2018, 17:45:24
+---------------------------------------------------------------------------------------------------------------------------------

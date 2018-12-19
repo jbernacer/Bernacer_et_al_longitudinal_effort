@@ -1,0 +1,55 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_correlation_inscanner_outscanner.log
+  log type:  text
+ opened on:  17 Dec 2018, 17:36:33
+
+. pwcorr POST_minus_PRE_Khyp POST_minus_PRE_hi_prob , sig obs
+
+             | POST_m~p POST_m~b
+-------------+------------------
+POST_minus~p |   1.0000 
+             |
+             |       19
+             |
+POST_minus~b |  -0.6122   1.0000 
+             |   0.0053
+             |       19       19
+             |
+
+. spearman POST_minus_PRE_Khyp POST_minus_PRE_hi_prob
+
+ Number of obs =      19
+Spearman's rho =      -0.4945
+
+Test of Ho: POST_minus_PRE_Khyp and POST_minus_PRE_hi_~b are independent
+    Prob > |t| =       0.0314
+
+
+. pwcorr POST_minus_PRE_log_Khyp POST_minus_PRE_hi_prob , sig obs
+
+             | P~g_Khyp POST_m~b
+-------------+------------------
+POST_~g_Khyp |   1.0000 
+             |
+             |       19
+             |
+POST_minus~b |  -0.6347   1.0000 
+             |   0.0035
+             |       19       19
+             |
+
+. spearman POST_minus_PRE_log_Khyp POST_minus_PRE_hi_prob
+
+ Number of obs =      19
+Spearman's rho =      -0.4391
+
+Test of Ho: POST_minus_PRE_log~p and POST_minus_PRE_hi_~b are independent
+    Prob > |t| =       0.0600
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN_PATH]\Results_correlation_inscanner_outscanner.log
+  log type:  text
+ closed on:  17 Dec 2018, 17:40:03
+---------------------------------------------------------------------------------------------------------------------------------

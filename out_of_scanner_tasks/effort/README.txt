@@ -1,4 +1,4 @@
-This folder includes individual results of the out-of-scanner task to assess effort-discounting.
+﻿This folder includes individual results of the out-of-scanner task to assess effort-discounting.
 
 Separate files for before (PRE) and after (POST) habit acquisition are included.
 
@@ -9,13 +9,19 @@ The task included a fixed option (5 € in exchange for 0 minutes running) and a
 For each subject, it was run in two consecutive sessions with 72 trials each. Note that the order of the
 trials is randomized in each session and subject.
 
-Files are Matlab cells organized as follows:
+In the root folder there are two Matlab codes:
 
-all_sessions{1,1}=1st session, money of the alternative option
-all_sessions{2,1}=2nd session, money of the alternative option
-all_sessions{1,2}=1st session, effort (minutes running) of the alternative option
-all_sessions{2,2}=2nd session, effort (minutes running) of the alternative option
-all_sessions{1,3}=1st session, position on screen of the alternative option
-all_sessions{2,3}=2nd session, position on screen of the alternative option
-all_sessions{1,4}=1st session, choice
-all_sessions{2,4}=2nd session, choice
+best_adjustment_and_group_fitting.m: this script shows which adjustment (hyperbolic, exponential, double exponential
+or parabolic) was better for each subject. Besides, it takes the average of individual indifference points and
+estimate the best fitting (among thouse discounting functions) for the whole sample. It should be estimated independently
+for the intervention and control sample, and for PRE and POST
+
+effort_discounting_estimation.m: this script is used to estimate effort discounting for each subject. Basically it has
+three stages: data extraction, estimation of psychometric functions to calculate indifference points, and fitting
+to the 4 functions mentioned above to determine which is best.
+
+Briefly, the folders contained here include:
+PRE_ and POST_log_results: individual log files of the effort discounting task. 
+PRE_ and POST_analyses: all individual and group result files.
+psychometric_functions: individual graphs of the psychometric functions used to estimate indifference points.
+
