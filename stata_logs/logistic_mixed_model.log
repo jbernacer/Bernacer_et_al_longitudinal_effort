@@ -1,0 +1,94 @@
+---------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [HIDDEN PATH]\R1\open_science\stata_logs\logistic_mixed_model.log
+  log type:  text
+ opened on:  17 Jun 2019, 14:00:48
+
+. mat a=(0,0,0,0,0,0,0,-2,0,0,0)
+
+. xtmelogit choice diff_SV diff_effort_transformed  diff_prob_transformed  c.diff_SV#habit c.diff_effort_transformed#habit 
+> c.diff_prob_transformed#habit ||id: diff_SV diff_effort_transformed  diff_prob_transformed  , from(a,copy) difficult
+
+Refining starting values: 
+
+Iteration 0:   log likelihood = -3084.2162  (not concave)
+Iteration 1:   log likelihood = -2571.0221  (not concave)
+Iteration 2:   log likelihood = -2529.9975  
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log likelihood = -2529.9975  (not concave)
+numerical derivatives are approximate
+nearby values are missing
+Iteration 1:   log likelihood = -2153.0007  
+Iteration 2:   log likelihood = -2153.0007  (not concave)
+Iteration 3:   log likelihood = -2027.1321  (not concave)
+Iteration 4:   log likelihood = -1974.0597  
+Iteration 5:   log likelihood =  -1964.837  
+Iteration 6:   log likelihood = -1962.5896  
+Iteration 7:   log likelihood = -1962.4979  
+numerical derivatives are approximate
+nearby values are missing
+Iteration 8:   log likelihood = -1962.4977  
+numerical derivatives are approximate
+nearby values are missing
+Iteration 9:   log likelihood = -1962.4977  
+
+Mixed-effects logistic regression               Number of obs      =      6765
+Group variable: id                              Number of groups   =        19
+
+                                                Obs per group: min =       335
+                                                               avg =     356.1
+                                                               max =       360
+
+Integration points =   7                        Wald chi2(6)       =    208.70
+Log likelihood = -1962.4977                     Prob > chi2        =    0.0000
+
+-------------------------------------------------------------------------------------------------
+                         choice |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------------------------+----------------------------------------------------------------
+                        diff_SV |   1.187494   .7572238     1.57   0.117    -.2966371    2.671626
+        diff_effort_transformed |   -19.3964   3.960437    -4.90   0.000    -27.15871   -11.63408
+          diff_prob_transformed |   16.15941   4.296008     3.76   0.000     7.739384    24.57943
+                                |
+                habit#c.diff_SV |
+                             1  |  -.1682718   .2589371    -0.65   0.516    -.6757792    .3392356
+                                |
+habit#c.diff_effort_transformed |
+                             1  |   7.561314   1.757962     4.30   0.000     4.115771    11.00686
+                                |
+  habit#c.diff_prob_transformed |
+                             1  |   2.744016   1.854126     1.48   0.139    -.8900047    6.378037
+                                |
+                          _cons |  -.0644917   .0418345    -1.54   0.123    -.1464859    .0175025
+-------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+id: Independent              |
+                 sd(diff_SV) |   3.090697   .5853619      2.132275    4.479913
+                sd(diff_e~d) |   15.75605   2.873657       11.0205    22.52647
+                sd(diff_p~d) |    16.9454   3.027671      11.93894    24.05126
+                   sd(_cons) |   1.70e-09   .1338034             0           .
+------------------------------------------------------------------------------
+LR test vs. logistic regression:     chi2(4) =  2619.81   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. estat ic
+
+-----------------------------------------------------------------------------
+       Model |    Obs    ll(null)   ll(model)     df          AIC         BIC
+-------------+---------------------------------------------------------------
+           . |   6765           .   -1962.498     11     3946.995     4022.01
+-----------------------------------------------------------------------------
+               Note:  N=Obs used in calculating BIC; see [R] BIC note
+
+. log close
+      name:  <unnamed>
+       log:  [HIDDEN PATH]\R1\open_science\sta
+> ta_logs\logistic_mixed_model.log
+  log type:  text
+ closed on:  17 Jun 2019, 16:12:26
+---------------------------------------------------------------------------------------------------------------------------
